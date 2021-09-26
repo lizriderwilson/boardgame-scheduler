@@ -1,11 +1,11 @@
 import React from 'react';
 
-const UserInfo = props => {
+const UserNav = props => {
   return (
     <div className="text-white">
-      {props.username}
+      {props.currentUser}
     </div>
   )
 }
 
-export default UserInfo
+export default UserNav
