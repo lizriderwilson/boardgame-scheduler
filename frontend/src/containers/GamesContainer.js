@@ -3,7 +3,7 @@ import React from 'react'
 class GamesContainer extends React.Component {
   render() {
     return (
-      <div>Games</div>
+      <div className="container mx-auto">Games</div>
     )
   }
 }

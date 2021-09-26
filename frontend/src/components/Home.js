@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Home = () => (
-  <div>Hey</div>
+  <div className="container mx-auto">Hey</div>
 )
 
 export default Home
