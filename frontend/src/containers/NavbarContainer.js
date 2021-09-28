@@ -1,40 +1,43 @@
 import React from 'react';
 import Navbar from '../components/Navbar'
-import UserNav from '../components/UserNav'
-import UserSelect from '../components/UserSelect'
 
 class NavbarContainer extends React.Component {
-  constructor() {
-    super()
-    this.state = {
-      users: [],
-      currentUser: ''
-    }
-  }
+  // constructor(props) {
+  //   super(props)
+  //   this.state = {
+  //     users: [],
+  //     currentUser: ''
+  //   }
+  // }
 
-  componentDidMount() {
-    fetch('http://localhost:3001/api/v1/users', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json'
-      },
-    })
-    .then(response => response.json())
-    .then(data => {
-      this.setState({
-        ...this.state,
-        users: data
-      })
-      console.log(this.state.users)
-    })
-  }
+  // componentDidMount() {
+  //   fetch('http://localhost:3001/api/v1/users', {
+  //     method: 'GET',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       Accept: 'application/json'
+  //     },
+  //   })
+  //   .then(response => response.json())
+  //   .then(data => {
+  //     this.setState({
+  //       ...this.state,
+  //       users: data
+  //     })
+  //     console.log(this.state.users)
+  //   })
+  // }
 
-  selectUser = (user) => {
-    this.setState({
-      ...this.state,
-      currentUser: user
-    })
+  // selectUser = (user) => {
+  //   this.setState({
+  //     ...this.state,
+  //     currentUser: user
+  //   })
+  // }
+
+  handleChange = (event) => {
+    console.log(event.target)
+    //this.props.onChange(event.target.value)
   }
 
   render() {
@@ -47,8 +50,13 @@ class NavbarContainer extends React.Component {
           </div>
           <Navbar />
           <div className="flex">
-            <UserNav currentUser={this.state.currentUser}/>
-            <UserSelect users={this.state.users} handleSelectUser={this.selectUser} />
+            <p className="text-yellow-300 mr-2">Currently logged in as: </p>
+              <select onChange={this.handleChange}>
+                <option key="0" value=""></option>
+                {this.props.users.map(user => (
+                <option key={user.id} value={user.username}>{user.username}</option>
+                ))}
+              </select>
           </div>
         </div>
       </div>
