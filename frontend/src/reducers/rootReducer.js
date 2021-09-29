@@ -1,42 +1,10 @@
-// import { combineReducers } from "redux";
-// const rootReducer = combineReducers({
-//   users: usersReducer,
-// });
-// 
+import { combineReducers } from "redux";
+import sessionsReducer from "./sessionReducer";
+import usersReducer from "./userReducer";
 
-// const rootReducer = (state = { users: []/*, currentUser: ''*/ }, action) => {
-//   switch (action.type) {
-//     case 'GET_USERS':
-//       return {
-//         users: action.users
-//       }
-//     // case "SET_USER":
-//     //   return {
-//     //     ...state,
-//     //     currentUser: action.user
-//     //   }
-//     default:
-//       return state;
-//   }
-// }
-
-// export default rootReducer;
-
-const rootReducer = (state = { users: [], currentUser: '' }, action) => {
-  switch(action.type) {
-    case 'GET_USERS':
-      return {
-        ...state,
-        users: action.users,
-      }
-    case 'SET_USER':
-      return {
-        ...state,
-        currentUser: action.user
-      }
-    default:
-      return state;
-  }
-}
+const rootReducer = combineReducers({
+  sessions: sessionsReducer,
+  users: usersReducer,
+});
 
 export default rootReducer;
