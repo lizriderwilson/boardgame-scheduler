@@ -11,6 +11,10 @@ class NavbarContainer extends Component {
     selectedUser: "",
   };
 
+  componentDidMount() {
+    this.props.actions.fetchUsers();
+  }
+
   handleSubmit = (e) => {
     //this.props.handleOnSubmit(e.target.value);
     //console.log(e.target.value);

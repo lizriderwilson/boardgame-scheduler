@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from "react-redux";
+import * as userActions from "../actions/userActions";
 
 class UsersContainer extends React.Component {
   render() {
@@ -18,4 +20,11 @@ class UsersContainer extends React.Component {
   }
 }
 
-export default UsersContainer;
+const mapStateToProps = (state) => {
+  return {
+    users: state.users,
+    sessions: state.sessions,
+  };
+};
+
+export default connect(mapStateToProps)(UsersContainer);
