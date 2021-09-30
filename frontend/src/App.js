@@ -7,6 +7,7 @@ import HomeContainer from "./containers/HomeContainer";
 import GamesContainer from "./containers/GamesContainer";
 import TablesContainer from "./containers/TablesContainer";
 import UsersContainer from "./containers/UsersContainer";
+import Profile from "./components/Profile";
 
 class App extends Component {
   render() {
@@ -18,6 +19,7 @@ class App extends Component {
           <Route exact path="/games" component={GamesContainer} />
           <Route exact path="/tables" component={TablesContainer} />
           <Route exact path="/users" component={UsersContainer} />
+          <Route exact path="/profile" component={Profile} />
         </div>
       </Router>
     );

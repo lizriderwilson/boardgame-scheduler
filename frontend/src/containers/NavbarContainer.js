@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Navbar from "../components/Navbar";
 import Login from "../components/Login";
+import CurrentUser from "../components/CurrentUser";
 
 import { connect } from "react-redux";
 import * as userActions from "../actions/userActions";
@@ -14,6 +15,7 @@ class NavbarContainer extends Component {
 
   componentDidMount() {
     this.props.actions.fetchUsers();
+    this.props.actions.checkLoginStatus();
   }
 
   handleSubmit = (e) => {
@@ -25,6 +27,13 @@ class NavbarContainer extends Component {
   };
 
   render() {
+    const loggedIn = this.props.sessions.logged_in;
+    let profileOrLogin;
+    if (loggedIn) {
+      profileOrLogin = <CurrentUser />;
+    } else {
+      profileOrLogin = <Login />;
+    }
     return (
       <div className="min-h-24 bg-yellow-900">
         <div className="h-full container mx-auto flex items-center justify-between">
@@ -37,21 +46,7 @@ class NavbarContainer extends Component {
             </p>
           </div>
           <Navbar />
-          <div className="flex">
-            <Login />
-            {/* <p className="text-yellow-300 mr-2">Currently logged in as: </p>
-            <form onSubmit={this.handleSubmit}>
-              <input
-                type="text"
-                value={this.props.selectedUser}
-                onChange={(event) => {
-                  console.log(event.target.value);
-                  this.setState({ selectedUser: event.target.value });
-                }}
-              />
-              <button>Login</button>
-            </form> */}
-          </div>
+          <div className="flex">{profileOrLogin}</div>
         </div>
       </div>
     );

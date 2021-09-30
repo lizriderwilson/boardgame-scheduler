@@ -27,6 +27,25 @@ export const loginUser = (user) => {
   };
 };
 
+export const logOut = (user) => {
+  return (dispatch) => {
+    fetch("http://localhost:3001/logout", {
+      method: "DELETE",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((logout_status) => {
+        dispatch({ type: "LOGOUT_USER", logout_status });
+      });
+  };
+};
+
 export const checkLoginStatus = () => {
   return (dispatch) => {
     fetch("http://localhost:3001/logged_in", {
