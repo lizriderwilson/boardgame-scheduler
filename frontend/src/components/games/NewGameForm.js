@@ -31,7 +31,7 @@ class NewGameForm extends Component {
 
   render() {
     return (
-      <div className="bg-yellow-100 rounded-md p-10">
+      <div className="bg-amber-100 rounded-md p-10">
         <form onSubmit={this.handleSubmit}>
           <div>
             <label htmlFor="name-field">Name</label>

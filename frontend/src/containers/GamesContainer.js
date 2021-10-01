@@ -25,8 +25,8 @@ class GamesContainer extends React.Component {
     }
     return (
       <div className="container mx-auto">
-        <h1>Games</h1>
-        <div className="grid grid-cols-4 gap-2">{gameCards}</div>
+        <h1 className="text-2xl font-bold my-4">Games</h1>
+        <div className="grid grid-cols-4 gap-4 my-4">{gameCards}</div>
         {gameForm}
       </div>
     );

@@ -35,13 +35,13 @@ class NavbarContainer extends Component {
       profileOrLogin = <Login />;
     }
     return (
-      <div className="min-h-24 py-4 bg-yellow-900">
+      <div className="min-h-24 py-4 bg-darkbrown">
         <div className="h-full container mx-auto flex items-center justify-between">
           <div className="flex flex-col">
-            <p className="text-yellow-300 text-3xl font-bold mr-10">
+            <p className="text-amber-600 text-3xl font-bold mr-10">
               Boardgame Scheduler
             </p>
-            <p className="text-yellow-300">
+            <p className="text-amber-200">
               Organize and schedule games for your event!
             </p>
           </div>

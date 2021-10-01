@@ -9,8 +9,13 @@ module.exports = {
       white: colors.white,
       teal: colors.teal,
       amber: colors.amber,
+      orange: colors.orange,
     },
-    extend: {},
+    extend: {
+      colors: {
+        darkbrown: "#5a3d2b",
+      },
+    },
   },
   variants: {
     extend: {},

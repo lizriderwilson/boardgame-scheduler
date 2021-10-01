@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 
 const GameCard = (props) => (
   <div className="bg-amber-100 p-6 rounded-lg shadow-lg">
