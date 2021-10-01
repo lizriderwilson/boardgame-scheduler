@@ -6,9 +6,6 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def create
-    # user = User.create(name: params["username"])
-    # render json: card
-
     user = User.create(user_params)
     if user
       session[:user_id] = user.id

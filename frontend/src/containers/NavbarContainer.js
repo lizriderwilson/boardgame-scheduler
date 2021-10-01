@@ -35,7 +35,7 @@ class NavbarContainer extends Component {
       profileOrLogin = <Login />;
     }
     return (
-      <div className="min-h-24 bg-yellow-900">
+      <div className="min-h-24 py-4 bg-yellow-900">
         <div className="h-full container mx-auto flex items-center justify-between">
           <div className="flex flex-col">
             <p className="text-yellow-300 text-3xl font-bold mr-10">

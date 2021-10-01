@@ -19,7 +19,6 @@ class Login extends Component {
     event.preventDefault();
     const user = { ...this.state };
     this.props.loginUser(user);
-    //this.props.checkLoginStatus();
     this.setState({
       username: "",
       password: "",

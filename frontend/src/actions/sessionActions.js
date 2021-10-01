@@ -48,6 +48,7 @@ export const logOut = (user) => {
 
 export const checkLoginStatus = () => {
   return (dispatch) => {
+    dispatch({ type: "LOADING_LOGIN_STATUS" });
     fetch("http://localhost:3001/logged_in", {
       method: "GET",
       credentials: "include",
@@ -60,7 +61,6 @@ export const checkLoginStatus = () => {
         return response.json();
       })
       .then((login_status) => {
-        //console.log(login_status);
         dispatch({ type: "CHECK_LOGIN_STATUS", login_status });
       });
   };
