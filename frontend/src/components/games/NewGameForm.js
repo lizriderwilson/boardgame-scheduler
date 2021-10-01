@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addNewGame } from "../actions/gamesActions";
+import { addNewGame } from "../../actions/gamesActions";
 
 class NewGameForm extends Component {
   state = {

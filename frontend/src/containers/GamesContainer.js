@@ -4,7 +4,8 @@ import * as gamesActions from "../actions/gamesActions";
 import * as sessionActions from "../actions/sessionActions";
 import { bindActionCreators } from "redux";
 
-import NewGameForm from "../components/NewGameForm";
+import NewGameForm from "../components/games/NewGameForm";
+import GameCard from "../components/games/GameCard";
 
 class GamesContainer extends React.Component {
   componentDidMount() {
@@ -14,24 +15,18 @@ class GamesContainer extends React.Component {
   render() {
     const games = this.props.games;
     const isUserLoading = this.props.sessions.loading;
-    let gameForm;
+    let gameForm, gameCards;
     if (isUserLoading) {
       gameForm = <p>Loading</p>;
+      gameCards = <p>Loading</p>;
     } else {
       gameForm = <NewGameForm user={this.props.sessions.user} />;
+      gameCards = games.map((game) => <GameCard game={game} />);
     }
     return (
       <div className="container mx-auto">
         <h1>Games</h1>
-        <ul>
-          {games.map((game) => (
-            <li key={game.id}>
-              {game.name} - {game.number_of_players} - {game.time} - Owned by{" "}
-              {game.user.username}
-            </li>
-          ))}
-        </ul>
-
+        <div className="grid grid-cols-4 gap-2">{gameCards}</div>
         {gameForm}
       </div>
     );
