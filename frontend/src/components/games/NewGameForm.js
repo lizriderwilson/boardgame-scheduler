@@ -26,7 +26,6 @@ class NewGameForm extends Component {
     this.setState({
       [name]: value,
     });
-    console.log(this.state);
   };
 
   render() {

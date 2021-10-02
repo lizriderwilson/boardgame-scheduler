@@ -15,13 +15,17 @@ class GamesContainer extends React.Component {
   render() {
     const games = this.props.games;
     const isUserLoading = this.props.sessions.loading;
+    const areGamesLoading = this.props.games.loading;
     let gameForm, gameCards;
     if (isUserLoading) {
       gameForm = <p>Loading</p>;
-      gameCards = <p>Loading</p>;
     } else {
       gameForm = <NewGameForm user={this.props.sessions.user} />;
-      gameCards = games.map((game) => <GameCard game={game} />);
+    }
+    if (areGamesLoading) {
+      gameCards = <p>Loading</p>;
+    } else {
+      gameCards = games.games.map((game) => <GameCard game={game} />);
     }
     return (
       <div className="container mx-auto">

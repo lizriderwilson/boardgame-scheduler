@@ -13,7 +13,7 @@ class CurrentUser extends Component {
 
   render() {
     return (
-      <div className="font-bold text-teal-500">
+      <div className="font-bold text-teal-400">
         Logged in as:{" "}
         <NavLink to="/profile" exact className="mx-4">
           {this.props.sessions.user.username}
