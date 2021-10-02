@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Navbar from "../components/Navbar";
+import Login from "../components/Login";
+import CurrentUser from "../components/CurrentUser";
 
 import { connect } from "react-redux";
 import * as userActions from "../actions/userActions";
@@ -11,9 +13,12 @@ class NavbarContainer extends Component {
     selectedUser: "",
   };
 
+  componentDidMount() {
+    this.props.actions.fetchUsers();
+    this.props.actions.checkLoginStatus();
+  }
+
   handleSubmit = (e) => {
-    //this.props.handleOnSubmit(e.target.value);
-    //console.log(e.target.value);
     e.preventDefault();
     const currentSelectedUser = this.props.users.find(
       (user) => user.username === this.state.selectedUser
@@ -21,48 +26,27 @@ class NavbarContainer extends Component {
     this.props.actions.setActiveUser(currentSelectedUser);
   };
 
-  listUsers = () => {
-    return this.props.users.map((user) => (
-      <option key={user.id} value={user.username}>
-        {user.username}
-      </option>
-    ));
-  };
-
   render() {
+    const loggedIn = this.props.sessions.logged_in;
+    let profileOrLogin;
+    if (loggedIn) {
+      profileOrLogin = <CurrentUser />;
+    } else {
+      profileOrLogin = <Login />;
+    }
     return (
-      <div className="min-h-24 bg-yellow-900">
+      <div className="min-h-24 py-4 bg-darkbrown">
         <div className="h-full container mx-auto flex items-center justify-between">
           <div className="flex flex-col">
-            <p className="text-yellow-300 text-3xl font-bold mr-10">
+            <p className="text-amber-600 text-3xl font-bold mr-10">
               Boardgame Scheduler
             </p>
-            <p className="text-yellow-300">
+            <p className="text-amber-200">
               Organize and schedule games for your event!
             </p>
           </div>
           <Navbar />
-          <div className="flex">
-            <p className="text-yellow-300 mr-2">Currently logged in as: </p>
-            <form onSubmit={this.handleSubmit}>
-              <input
-                type="text"
-                value={this.props.selectedUser}
-                onChange={(event) => {
-                  console.log(event.target.value);
-                  this.setState({ selectedUser: event.target.value });
-                }}
-              />
-              {/* <select
-                value={this.state.seletedUser}
-                onChange={this.handleChange}
-              >
-                <option key="0" value=""></option>
-                {this.listUsers()}
-              </select> */}
-              <button>Login</button>
-            </form>
-          </div>
+          <div className="flex">{profileOrLogin}</div>
         </div>
       </div>
     );

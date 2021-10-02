@@ -6,8 +6,18 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def create
-    user = User.create(name: params["username"])
-    render json: card
+    user = User.create(user_params)
+    if user
+      session[:user_id] = user.id
+      render json: {
+        status: :created,
+        user: UserSerializer.new(user)
+      }
+    else
+      render json: {
+        status: :unprocessable_entity,
+        error: 'failed to create user' }
+    end
   end
 
   def show
@@ -24,6 +34,11 @@ class Api::V1::UsersController < ApplicationController
   def destroy
     user = User.find_by(id: params["id"])
     user.delete
+  end
+
+  private
+  def user_params
+    params.require(:user).permit(:username, :password, :password_confirmation)
   end
 
 end
