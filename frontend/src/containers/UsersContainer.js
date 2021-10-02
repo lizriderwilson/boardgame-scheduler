@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import * as sessionActions from "../actions/sessionActions";
+import * as sessionActions from "../redux/actions/sessionActions";
 
 class UsersContainer extends React.Component {
   componentDidMount() {

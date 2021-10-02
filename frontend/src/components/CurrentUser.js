@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 
 import { connect } from "react-redux";
-import * as userActions from "../actions/userActions";
-import * as sessionActions from "../actions/sessionActions";
+import * as userActions from "../redux/actions/userActions";
+import * as sessionActions from "../redux/actions/sessionActions";
 import { bindActionCreators } from "redux";
 
 class CurrentUser extends Component {

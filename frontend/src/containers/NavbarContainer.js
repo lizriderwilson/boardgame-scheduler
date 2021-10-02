@@ -4,8 +4,8 @@ import Login from "../components/Login";
 import CurrentUser from "../components/CurrentUser";
 
 import { connect } from "react-redux";
-import * as userActions from "../actions/userActions";
-import * as sessionActions from "../actions/sessionActions";
+import * as userActions from "../redux/actions/userActions";
+import * as sessionActions from "../redux/actions/sessionActions";
 import { bindActionCreators } from "redux";
 
 class NavbarContainer extends Component {
