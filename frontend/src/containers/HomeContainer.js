@@ -8,7 +8,7 @@ class HomeContainer extends Component {
     return (
       <div className="container mx-auto">
         <div className="mt-8">
-          <h1 className="font-bold text-4xl text-yellow-900">
+          <h1 className="font-bold text-4xl text-darkbrown">
             Welcome to Boardgame Scheduler!
           </h1>
           <p className="mt-2 w-2/3">

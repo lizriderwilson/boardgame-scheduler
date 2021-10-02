@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { checkLoginStatus, loginUser } from "../actions/sessionActions";
+import { checkLoginStatus, loginUser } from "../redux/actions/sessionActions";
 
 class Login extends Component {
   state = {

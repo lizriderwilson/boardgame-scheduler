@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import GameCard from "./GameCard";
-import { fetchGames } from "../../actions/gamesActions";
+import { fetchGames } from "../../redux/actions/gamesActions";
 
 class Games extends Component {
   componentDidMount() {
@@ -12,7 +12,7 @@ class Games extends Component {
     const gameCards = this.props.games.map((game) => (
       <GameCard key={game.id} game={game} />
     ));
-    return <div className="grid grid-cols-4 gap-4">{gameCards}</div>;
+    return <div className="grid grid-cols-4 gap-4 my-8">{gameCards}</div>;
   }
 }
 

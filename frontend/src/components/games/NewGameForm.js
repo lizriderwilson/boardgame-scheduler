@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addNewGame } from "../../actions/gamesActions";
+import { addNewGame } from "../../redux/actions/gamesActions";
 
 class NewGameForm extends Component {
   state = {
@@ -10,10 +10,6 @@ class NewGameForm extends Component {
     description: "",
     user_id: this.props.user.id,
   };
-
-  componentDidMount() {
-    //console.log(this.props.user);
-  }
 
   handleSubmit = (event) => {
     event.preventDefault();
@@ -29,11 +25,12 @@ class NewGameForm extends Component {
 
   render() {
     return (
-      <div className="bg-amber-100 rounded-md p-10">
+      <div className="bg-amber-100 rounded-lg p-10 mx-auto w-1/2">
         <form onSubmit={this.handleSubmit}>
-          <div>
+          <div className="flex flex-col mb-4">
             <label htmlFor="name-field">Name</label>
             <input
+              className="p-2 text-sm rounded-md bg-amber-50 border-2 border-amber-500"
               type="text"
               name="name"
               id="name-field"
@@ -41,9 +38,10 @@ class NewGameForm extends Component {
               onChange={this.handleChange}
             />
           </div>
-          <div>
+          <div className="flex flex-col mb-4">
             <label htmlFor="numberOfPlayers-field">Number of Players</label>
             <input
+              className="p-2 text-sm rounded-md bg-amber-50 border-2 border-amber-500"
               type="text"
               name="numberOfPlayers"
               id="numberOfPlayers-field"
@@ -51,9 +49,10 @@ class NewGameForm extends Component {
               onChange={this.handleChange}
             />
           </div>
-          <div>
+          <div className="flex flex-col mb-4">
             <label htmlFor="time-field">Time Required</label>
             <input
+              className="p-2 text-sm rounded-md bg-amber-50 border-2 border-amber-500"
               type="text"
               name="time"
               id="time-field"
@@ -61,17 +60,22 @@ class NewGameForm extends Component {
               onChange={this.handleChange}
             />
           </div>
-          <div>
+          <div className="flex flex-col mb-4">
             <label htmlFor="description-field">Description</label>
-            <input
-              type="text"
+            <textarea
+              className="p-2 text-sm rounded-md bg-amber-50 border-2 border-amber-500"
               name="description"
               id="description-field"
               value={this.state.description}
               onChange={this.handleChange}
             />
           </div>
-          <input type="submit" value="Add Game" />
+
+          <input
+            className="p-2 text-sm text-darkbrown font-bold uppercase tracking-tight rounded-md bg-amber-600"
+            type="submit"
+            value="Add Game"
+          />
         </form>
       </div>
     );

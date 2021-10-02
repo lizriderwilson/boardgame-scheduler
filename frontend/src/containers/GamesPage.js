@@ -1,15 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
-import * as gamesActions from "../actions/gamesActions";
-import * as sessionActions from "../actions/sessionActions";
+import * as gamesActions from "../redux/actions/gamesActions";
+import * as sessionActions from "../redux/actions/sessionActions";
 import { bindActionCreators } from "redux";
 
 import NewGameForm from "../components/games/NewGameForm";
 import Games from "../components/games/Games";
 
 class GamesPage extends React.Component {
-  componentDidMount() {}
-
   render() {
     const isUserLoading = this.props.sessions.loading;
     let gameForm;
@@ -21,7 +19,13 @@ class GamesPage extends React.Component {
 
     return (
       <div className="container mx-auto">
-        <h1 className="text-2xl font-bold my-4">Games</h1>
+        <div className="mt-8">
+          <h1 className="font-bold text-4xl text-darkbrown uppercase">Games</h1>
+          <p className="mt-2 w-2/3">
+            Check out the list of games here. To add a game to the collection,
+            use the form below.
+          </p>
+        </div>
         <Games />
         {gameForm}
       </div>
