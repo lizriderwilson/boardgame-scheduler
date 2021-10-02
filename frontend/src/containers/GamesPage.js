@@ -5,32 +5,24 @@ import * as sessionActions from "../actions/sessionActions";
 import { bindActionCreators } from "redux";
 
 import NewGameForm from "../components/games/NewGameForm";
-import GameCard from "../components/games/GameCard";
+import Games from "../components/games/Games";
 
-class GamesContainer extends React.Component {
-  componentDidMount() {
-    this.props.actions.fetchGames();
-  }
+class GamesPage extends React.Component {
+  componentDidMount() {}
 
   render() {
-    const games = this.props.games;
     const isUserLoading = this.props.sessions.loading;
-    const areGamesLoading = this.props.games.loading;
-    let gameForm, gameCards;
+    let gameForm;
     if (isUserLoading) {
       gameForm = <p>Loading</p>;
     } else {
       gameForm = <NewGameForm user={this.props.sessions.user} />;
     }
-    if (areGamesLoading) {
-      gameCards = <p>Loading</p>;
-    } else {
-      gameCards = games.games.map((game) => <GameCard game={game} />);
-    }
+
     return (
       <div className="container mx-auto">
         <h1 className="text-2xl font-bold my-4">Games</h1>
-        <div className="grid grid-cols-4 gap-4 my-4">{gameCards}</div>
+        <Games />
         {gameForm}
       </div>
     );
@@ -53,4 +45,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(GamesContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(GamesPage);

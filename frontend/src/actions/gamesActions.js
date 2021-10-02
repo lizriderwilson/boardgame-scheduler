@@ -1,6 +1,6 @@
 export const fetchGames = () => {
   return (dispatch) => {
-    dispatch({ type: "LOADING_GAMES" });
+    // dispatch({ type: "LOADING_GAMES" });
     fetch("http://localhost:3001/api/v1/games")
       .then((response) => {
         return response.json();
@@ -12,7 +12,6 @@ export const fetchGames = () => {
 };
 
 export const addNewGame = (game) => {
-  console.log(game);
   return (dispatch) => {
     fetch("http://localhost:3001/api/v1/games", {
       method: "POST",
@@ -35,7 +34,7 @@ export const addNewGame = (game) => {
         return response.json();
       })
       .then((game) => {
-        dispatch({ type: "ADD_NEW_GAME", game });
+        dispatch({ type: "ADD_NEW_GAME", game: game.game });
       });
   };
 };
