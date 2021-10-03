@@ -5,7 +5,7 @@ import CurrentUser from "../components/CurrentUser";
 
 import { connect } from "react-redux";
 import * as userActions from "../redux/actions/userActions";
-import * as sessionActions from "../redux/actions/sessionActions";
+import * as sessionsActions from "../redux/actions/sessionsActions";
 import { bindActionCreators } from "redux";
 
 class NavbarContainer extends Component {
@@ -63,7 +63,7 @@ const mapStateToProps = (state) => {
 function mapDispatchToProps(dispatch) {
   return {
     actions: bindActionCreators(
-      Object.assign({}, userActions, sessionActions),
+      Object.assign({}, userActions, sessionsActions),
       dispatch
     ),
   };

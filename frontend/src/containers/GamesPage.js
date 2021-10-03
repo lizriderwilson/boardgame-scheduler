@@ -1,13 +1,13 @@
-import React from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as gamesActions from "../redux/actions/gamesActions";
-import * as sessionActions from "../redux/actions/sessionActions";
+import * as sessionActions from "../redux/actions/sessionsActions";
 import { bindActionCreators } from "redux";
 
 import NewGameForm from "../components/games/NewGameForm";
 import Games from "../components/games/Games";
 
-class GamesPage extends React.Component {
+class GamesPage extends Component {
   render() {
     const isUserLoading = this.props.sessions.loading;
     let gameForm;
