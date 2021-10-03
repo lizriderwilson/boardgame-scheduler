@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import * as sessionActions from "../redux/actions/sessionActions";
+import * as sessionsActions from "../redux/actions/sessionsActions";
 
 class UsersContainer extends React.Component {
   componentDidMount() {
@@ -37,7 +37,7 @@ const mapStateToProps = (state) => {
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(Object.assign({}, sessionActions), dispatch),
+    actions: bindActionCreators(Object.assign({}, sessionsActions), dispatch),
   };
 }
 

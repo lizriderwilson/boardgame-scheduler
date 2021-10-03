@@ -2,10 +2,7 @@ import React from "react";
 // import { NavLink } from "react-router-dom";
 
 const GameCard = (props) => (
-  <div
-    key={props.game.id}
-    className="bg-amber-100 p-6 rounded-lg shadow-lg text-darkbrown"
-  >
+  <div className="bg-amber-100 p-6 rounded-lg shadow-lg text-darkbrown">
     <h4 className="mt-1 text-xl font-semibold uppercase leading-tight truncate">
       {props.game.name}
     </h4>
