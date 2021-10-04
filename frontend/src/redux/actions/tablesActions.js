@@ -5,6 +5,7 @@ export const fetchTables = () => {
         return response.json();
       })
       .then((responseJSON) => {
+        console.log(responseJSON);
         dispatch({ type: "GET_TABLES", tables: responseJSON });
       });
   };
