@@ -18,7 +18,7 @@ class Tables extends Component {
       })),
     }));
     const tableCards = tables.map((table) => (
-      <TableCard key={table.id} table={table} />
+      <TableCard key={table.id} table={table} {...this.props} />
     ));
     return <div className="grid grid-cols-3 gap-4 my-8">{tableCards}</div>;
   }
