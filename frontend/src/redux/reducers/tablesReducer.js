@@ -1,9 +1,18 @@
-export default function tableReducer(state = [], action) {
+export default function tableReducer(
+  state = { allTables: [], timeSlots: [] },
+  action
+) {
   switch (action.type) {
     case "GET_TABLES":
-      return action.tables;
+      return {
+        ...state,
+        allTables: action.tables,
+      };
     case "ADD_NEW_TIME_SLOT":
-      return state.concat(action.time_slot);
+      return {
+        ...state,
+        timeSlots: state.timeSlots.push(action.timeSlot),
+      };
     default:
       return state;
   }

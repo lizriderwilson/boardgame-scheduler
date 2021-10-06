@@ -24,6 +24,7 @@ class NewTimeSlotForm extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     this.props.actions.addNewTimeSlot(this.state);
+    this.props.actions.fetchTables();
     this.props.toggleModal();
   };
 
