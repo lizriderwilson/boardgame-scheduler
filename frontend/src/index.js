@@ -9,6 +9,9 @@ import rootReducer from "./redux/reducers/rootReducer";
 
 import "./index.css";
 
+import Modal from "react-modal";
+Modal.setAppElement(document.getElementById("root"));
+
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
 ReactDOM.render(

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       resources :users
       resources :games
       resources :tables
+      resources :time_slots
     end
   end
 

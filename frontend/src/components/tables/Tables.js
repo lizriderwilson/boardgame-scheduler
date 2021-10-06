@@ -9,8 +9,16 @@ class Tables extends Component {
   }
 
   render() {
-    const tableCards = this.props.tables.map((table) => (
-      <TableCard key={table.id} table={table} />
+    const tables = this.props.tables.map((table) => ({
+      ...table,
+      time_slots: table.time_slots.map((slot) => ({
+        ...slot,
+        start: new Date(slot.start),
+        end: new Date(slot.end),
+      })),
+    }));
+    const tableCards = tables.map((table) => (
+      <TableCard key={table.id} table={table} {...this.props} />
     ));
     return <div className="grid grid-cols-3 gap-4 my-8">{tableCards}</div>;
   }
