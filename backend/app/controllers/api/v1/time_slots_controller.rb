@@ -8,7 +8,7 @@ class Api::V1::TimeSlotsController < ApplicationController
   def create
     time_slot = TimeSlot.create(time_slot_params)
     if time_slot
-      render json: TimeSlotSerializer.new(time_slot)
+      render json: time_slot #TimeSlotSerializer.new(time_slot, each_serializer: TimeSlotSerializer)
     else
       render json: {
         status: :unprocessable_entity,

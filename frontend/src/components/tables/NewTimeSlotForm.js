@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as gamesActions from "../../redux/actions/gamesActions";
-import * as timeSlotsActions from "../../redux/actions/timeSlotsActions";
+import * as tablesActions from "../../redux/actions/tablesActions";
 import { bindActionCreators } from "redux";
 import format from "date-fns/format";
 import add from "date-fns/add";
@@ -18,12 +18,13 @@ class NewTimeSlotForm extends Component {
 
   componentDidMount() {
     this.props.actions.fetchGames();
+    console.log(this.props);
   }
 
   handleSubmit = (event) => {
     event.preventDefault();
     this.props.actions.addNewTimeSlot(this.state);
-    this.props.actions.toggleModal();
+    this.props.toggleModal();
   };
 
   handleGameSelect = (event) => {
@@ -110,13 +111,14 @@ class NewTimeSlotForm extends Component {
 const mapStateToProps = (state) => {
   return {
     games: state.games,
+    tables: state.tables,
   };
 };
 
 function mapDispatchToProps(dispatch) {
   return {
     actions: bindActionCreators(
-      Object.assign({}, timeSlotsActions, gamesActions),
+      Object.assign({}, gamesActions, tablesActions),
       dispatch
     ),
   };

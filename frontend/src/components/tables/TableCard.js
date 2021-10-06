@@ -8,9 +8,6 @@ import enUS from "date-fns/locale/en-US";
 
 import Modal from "react-modal";
 import NewTimeSlotForm from "./NewTimeSlotForm";
-import * as timeSlotsActions from "../../redux/actions/timeSlotsActions";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
 
 const locales = {
   "en-US": enUS,
@@ -25,12 +22,23 @@ const localizer = dateFnsLocalizer({
 });
 
 class TableCard extends Component {
+  state = {
+    modalOpen: false,
+    start: "",
+  };
+
   toggleModal = () => {
-    this.props.actions.toggleModal();
+    this.setState({
+      modalOpen: !this.state.modalOpen,
+    });
+    console.log(this.props);
   };
 
   setStartTime = (event) => {
-    this.props.actions.setStartTime(event);
+    console.log(event);
+    this.setState({
+      start: event.start,
+    });
     this.toggleModal();
   };
 
@@ -65,7 +73,8 @@ class TableCard extends Component {
           />
           <Modal
             key={this.props.table.key}
-            isOpen={this.props.timeSlots.modalOpen}
+            id={"modal" + this.props.table.key}
+            isOpen={this.state.modalOpen}
             overlayClassName="bg-transparent"
           >
             <button
@@ -75,8 +84,9 @@ class TableCard extends Component {
               CLOSE
             </button>
             <NewTimeSlotForm
+              toggleModal={this.toggleModal}
               tableId={this.props.table.id}
-              start={String(this.props.timeSlots.start)}
+              start={String(this.state.start)}
             />
           </Modal>
         </div>
@@ -85,16 +95,12 @@ class TableCard extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    timeSlots: state.timeSlots,
-  };
-};
+// const mapStateToProps = (state) => {
+//   return {
+//     timeSlots: state.timeSlots,
+//   };
+// };
 
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(Object.assign({}, timeSlotsActions), dispatch),
-  };
-}
+// export default connect(mapStateToProps)(TableCard);
 
-export default connect(mapStateToProps, mapDispatchToProps)(TableCard);
+export default TableCard;
