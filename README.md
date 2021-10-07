@@ -15,3 +15,7 @@ The backend is a Rails API using Ruby 2.6.1. From the /backend directory, run `b
 ### Frontend
 
 From the /frontend directory, run `npm install` to install dependencies and `npm start` to start the server.
+
+## etc
+
+Boardgame Scheduler uses [react-big-calendar](https://github.com/jquense/react-big-calendar) and [react-modal](https://github.com/reactjs/react-modal) for the game slot scheduling portion.
