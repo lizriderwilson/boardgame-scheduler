@@ -9,7 +9,6 @@ class Tables extends Component {
   }
 
   render() {
-    console.log(this.props.tables);
     const tables = this.props.tables.allTables.map((table) => ({
       ...table,
       time_slots: table.time_slots.map((slot) => ({

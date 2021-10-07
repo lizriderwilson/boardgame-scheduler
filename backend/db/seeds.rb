@@ -12,3 +12,8 @@ Game.create(name: 'Innovation', number_of_players: '2-4', time: '30-45 minutes',
 Game.create(name: 'Bargain Quest', number_of_players: '2-6', time: '30-30 minutes', user_id: 2)
 Game.create(name: 'Mouse Trap', number_of_players: '2-4', time: '30 minutes', user_id: 3)
 Game.create(name: 'Codenames', number_of_players: '2-8', time: '15 minutes', user_id: 4)
+
+Table.create(location: "A")
+Table.create(location: "B")
+Table.create(location: "C")
+Table.create(location: "D")
