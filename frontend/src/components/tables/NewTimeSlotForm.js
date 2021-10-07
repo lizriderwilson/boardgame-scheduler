@@ -18,7 +18,6 @@ class NewTimeSlotForm extends Component {
 
   componentDidMount() {
     this.props.actions.fetchGames();
-    console.log(this.props);
   }
 
   handleSubmit = (event) => {
@@ -46,7 +45,6 @@ class NewTimeSlotForm extends Component {
         })
       ),
     });
-    console.log(this.state);
   };
 
   render() {

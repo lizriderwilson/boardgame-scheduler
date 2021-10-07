@@ -1,5 +1,5 @@
 export default function tableReducer(
-  state = { allTables: [], timeSlots: [] },
+  state = { allTables: [], slots: [] },
   action
 ) {
   switch (action.type) {
@@ -11,7 +11,7 @@ export default function tableReducer(
     case "ADD_NEW_TIME_SLOT":
       return {
         ...state,
-        timeSlots: state.timeSlots.push(action.timeSlot),
+        slots: action.slot,
       };
     default:
       return state;

@@ -31,11 +31,9 @@ class TableCard extends Component {
     this.setState({
       modalOpen: !this.state.modalOpen,
     });
-    console.log(this.props);
   };
 
   setStartTime = (event) => {
-    console.log(event);
     this.setState({
       start: event.start,
     });

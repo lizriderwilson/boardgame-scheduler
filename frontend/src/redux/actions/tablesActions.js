@@ -32,8 +32,8 @@ export const addNewTimeSlot = (time_slot) => {
       .then((response) => {
         return response.json();
       })
-      .then((time_slot) => {
-        dispatch({ type: "ADD_NEW_TIME_SLOT", time_slot });
+      .then((slot) => {
+        dispatch({ type: "ADD_NEW_TIME_SLOT", slot });
       });
   };
 };
