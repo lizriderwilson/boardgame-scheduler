@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
 
 import { connect } from "react-redux";
-import * as userActions from "../redux/actions/userActions";
-import * as sessionsActions from "../redux/actions/sessionsActions";
+import * as userActions from "../../redux/actions/userActions";
+import * as sessionsActions from "../../redux/actions/sessionsActions";
 import { bindActionCreators } from "redux";
 
 class CurrentUser extends Component {
@@ -14,11 +13,13 @@ class CurrentUser extends Component {
   render() {
     return (
       <div className="font-bold text-teal-400">
-        Logged in as:{" "}
-        <NavLink to="/profile" exact className="mx-4">
-          {this.props.sessions.user.username}
-        </NavLink>
-        <button onClick={this.handleClick}>Logout!</button>
+        Logged in as: {this.props.sessions.user.username}
+        <button
+          className="bg-amber-600 text-yellow-100 text-sm py-1 px-2 rounded-md ml-2 uppercase"
+          onClick={this.handleClick}
+        >
+          Logout
+        </button>
       </div>
     );
   }

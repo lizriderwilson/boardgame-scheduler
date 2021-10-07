@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Navbar from "../components/Navbar";
 import Login from "../components/Login";
-import CurrentUser from "../components/CurrentUser";
+import CurrentUser from "../components/users/CurrentUser";
 
 import { connect } from "react-redux";
 import * as userActions from "../redux/actions/userActions";

@@ -5,8 +5,7 @@ import NavbarContainer from "./containers/NavbarContainer";
 import HomeContainer from "./containers/HomeContainer";
 import GamesPage from "./containers/GamesPage";
 import TablesPage from "./containers/TablesPage";
-import UsersContainer from "./containers/UsersContainer";
-import Profile from "./components/Profile";
+import UsersContainer from "./containers/UsersPage";
 
 const App = () => {
   return (
@@ -17,7 +16,6 @@ const App = () => {
         <Route exact path="/games" component={GamesPage} />
         <Route exact path="/tables" component={TablesPage} />
         <Route exact path="/users" component={UsersContainer} />
-        <Route exact path="/profile" component={Profile} />
       </div>
     </Router>
   );

@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as sessionsActions from "../redux/actions/sessionsActions";
 
-class UsersContainer extends React.Component {
+class UsersPage extends React.Component {
   componentDidMount() {
     this.props.actions.checkLoginStatus();
   }
@@ -41,4 +41,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(UsersPage);
