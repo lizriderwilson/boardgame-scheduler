@@ -27,6 +27,31 @@ export const loginUser = (user) => {
   };
 };
 
+export const createUser = (user) => {
+  return (dispatch) => {
+    fetch("http://localhost:3001/api/v1/users", {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        user: {
+          username: user.username,
+          password: user.password,
+        },
+      }),
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((login_status) => {
+        dispatch({ type: "LOGIN_USER", login_status });
+      });
+  };
+};
+
 export const logOut = (user) => {
   return (dispatch) => {
     fetch("http://localhost:3001/logout", {

@@ -1,28 +1,29 @@
-import React from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as sessionsActions from "../redux/actions/sessionsActions";
 
-class UsersPage extends React.Component {
+import Users from "../components/users/Users";
+
+class UsersPage extends Component {
   componentDidMount() {
     this.props.actions.checkLoginStatus();
   }
 
   render() {
+    const loggedIn = this.props.sessions.logged_in;
+    let usersOrSignUp;
+    if (loggedIn) {
+      usersOrSignUp = <Users />;
+    } else {
+      usersOrSignUp = <p>Please log in or sign up to view users.</p>;
+    }
     return (
       <div className="container mx-auto">
-        <h1 className="text-xl">
-          Logged in as:{" "}
-          {this.props.sessions.logged_in
-            ? this.props.sessions.user.username
-            : "no one"}
-        </h1>
-        <h2 className="text-lg">All Users:</h2>
-        <ul>
-          {this.props.users.map((user) => (
-            <li key={user.id}>{user.username}</li>
-          ))}
-        </ul>
+        <div className="mt-8">
+          <h1 className="font-bold text-4xl text-darkbrown uppercase">Users</h1>
+        </div>
+        {usersOrSignUp}
       </div>
     );
   }
@@ -30,7 +31,6 @@ class UsersPage extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    users: state.users,
     sessions: state.sessions,
   };
 };

@@ -4,7 +4,12 @@ export default function sessionsReducer(
 ) {
   switch (action.type) {
     case "LOGIN_USER":
-      return action.login_status;
+      console.log(action);
+      return {
+        ...state,
+        user: action.login_status.user,
+        logged_in: true,
+      };
     case "LOGOUT_USER":
       return action.logout_status;
     case "LOADING_LOGIN_STATUS":
