@@ -6,6 +6,8 @@ import CurrentUser from "../components/CurrentUser";
 import { connect } from "react-redux";
 import * as userActions from "../redux/actions/userActions";
 import * as sessionsActions from "../redux/actions/sessionsActions";
+import * as gamesActions from "../redux/actions/gamesActions";
+import * as tablesActions from "../redux/actions/tablesActions";
 import { bindActionCreators } from "redux";
 
 class NavbarContainer extends Component {
@@ -16,6 +18,8 @@ class NavbarContainer extends Component {
   componentDidMount() {
     this.props.actions.fetchUsers();
     this.props.actions.checkLoginStatus();
+    this.props.actions.fetchGames();
+    this.props.actions.fetchTables();
   }
 
   handleSubmit = (e) => {
@@ -57,13 +61,21 @@ const mapStateToProps = (state) => {
   return {
     users: state.users,
     sessions: state.sessions,
+    tables: state.tables,
+    games: state.games,
   };
 };
 
 function mapDispatchToProps(dispatch) {
   return {
     actions: bindActionCreators(
-      Object.assign({}, userActions, sessionsActions),
+      Object.assign(
+        {},
+        userActions,
+        sessionsActions,
+        gamesActions,
+        tablesActions
+      ),
       dispatch
     ),
   };

@@ -25,10 +25,16 @@ class NewGameForm extends Component {
 
   render() {
     return (
-      <div className="bg-amber-100 rounded-lg p-10 mx-auto w-1/2">
+      <div className="bg-amber-100 rounded-lg p-10 mx-auto w-1/2 text-darkbrown">
+        <h2 className="mt-1 text-xl font-semibold uppercase mb-3">New Game</h2>
         <form onSubmit={this.handleSubmit}>
           <div className="flex flex-col mb-4">
-            <label htmlFor="name-field">Name</label>
+            <label
+              htmlFor="name-field"
+              className="uppercase font-semibold text-sm"
+            >
+              Name
+            </label>
             <input
               className="p-2 text-sm rounded-md bg-amber-50 border-2 border-amber-500"
               type="text"
@@ -39,7 +45,12 @@ class NewGameForm extends Component {
             />
           </div>
           <div className="flex flex-col mb-4">
-            <label htmlFor="numberOfPlayers-field">Number of Players</label>
+            <label
+              htmlFor="numberOfPlayers-field"
+              className="uppercase font-semibold text-sm"
+            >
+              Number of Players
+            </label>
             <input
               className="p-2 text-sm rounded-md bg-amber-50 border-2 border-amber-500"
               type="text"
@@ -50,7 +61,12 @@ class NewGameForm extends Component {
             />
           </div>
           <div className="flex flex-col mb-4">
-            <label htmlFor="time-field">Time Required</label>
+            <label
+              htmlFor="time-field"
+              className="uppercase font-semibold text-sm"
+            >
+              Time Required
+            </label>
             <input
               className="p-2 text-sm rounded-md bg-amber-50 border-2 border-amber-500"
               type="text"
@@ -61,7 +77,12 @@ class NewGameForm extends Component {
             />
           </div>
           <div className="flex flex-col mb-4">
-            <label htmlFor="description-field">Description</label>
+            <label
+              htmlFor="description-field"
+              className="uppercase font-semibold text-sm"
+            >
+              Description
+            </label>
             <textarea
               className="p-2 text-sm rounded-md bg-amber-50 border-2 border-amber-500"
               name="description"

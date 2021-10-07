@@ -26,8 +26,10 @@ class GamesPage extends Component {
             use the form below.
           </p>
         </div>
-        <Games />
-        {gameForm}
+        <div className="flex gap-4 mt-8">
+          <Games />
+          {gameForm}
+        </div>
       </div>
     );
   }

@@ -12,7 +12,9 @@ class Games extends Component {
     const gameCards = this.props.games.map((game) => (
       <GameCard key={game.id} game={game} />
     ));
-    return <div className="grid grid-cols-4 gap-4 my-8">{gameCards}</div>;
+    return (
+      <div className="grid grid-cols-3 auto-rows-min gap-4">{gameCards}</div>
+    );
   }
 }
 
