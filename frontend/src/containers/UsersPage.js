@@ -12,18 +12,18 @@ class UsersPage extends Component {
 
   render() {
     const loggedIn = this.props.sessions.logged_in;
-    let usersOrSignUp;
+    let usersOrLogin;
     if (loggedIn) {
-      usersOrSignUp = <Users />;
+      usersOrLogin = <Users />;
     } else {
-      usersOrSignUp = <p>Please log in or sign up to view users.</p>;
+      usersOrLogin = <p>Please log in to view users.</p>;
     }
     return (
       <div className="container mx-auto">
         <div className="mt-8">
           <h1 className="font-bold text-4xl text-darkbrown uppercase">Users</h1>
         </div>
-        {usersOrSignUp}
+        {usersOrLogin}
       </div>
     );
   }

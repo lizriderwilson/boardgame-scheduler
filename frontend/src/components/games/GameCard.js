@@ -1,5 +1,4 @@
 import React from "react";
-// import { NavLink } from "react-router-dom";
 
 const GameCard = (props) => (
   <div className="bg-amber-100 p-6 rounded-lg shadow-lg text-darkbrown">
@@ -7,9 +6,6 @@ const GameCard = (props) => (
       {props.game.name}
     </h4>
     <div className="flex items-baseline">
-      {/* <span className="bg-teal-200 text-teal-800 text-xs px-2 inline-block rounded-full  uppercase font-semibold tracking-wide">
-        New
-      </span> */}
       <div className="text-gray-600 uppercase text-xs font-semibold tracking-wider">
         {props.game.number_of_players} players &bull; {props.game.time}
       </div>

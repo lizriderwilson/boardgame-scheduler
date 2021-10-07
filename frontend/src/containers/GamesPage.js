@@ -4,17 +4,19 @@ import * as gamesActions from "../redux/actions/gamesActions";
 import * as sessionActions from "../redux/actions/sessionsActions";
 import { bindActionCreators } from "redux";
 
-import NewGameForm from "../components/games/NewGameForm";
 import Games from "../components/games/Games";
 
 class GamesPage extends Component {
+  componentDidMount() {
+    this.props.actions.checkLoginStatus();
+  }
   render() {
-    const isUserLoading = this.props.sessions.loading;
-    let gameForm;
-    if (isUserLoading) {
-      gameForm = <p>Loading</p>;
+    const loggedIn = this.props.sessions.logged_in;
+    let gamesOrLogin;
+    if (loggedIn) {
+      gamesOrLogin = <Games sessions={this.props.sessions} />;
     } else {
-      gameForm = <NewGameForm user={this.props.sessions.user} />;
+      gamesOrLogin = <p>Please log in to view tables.</p>;
     }
 
     return (
@@ -26,10 +28,7 @@ class GamesPage extends Component {
             use the form below.
           </p>
         </div>
-        <div className="flex gap-4 mt-8">
-          <Games />
-          {gameForm}
-        </div>
+        {gamesOrLogin}
       </div>
     );
   }
