@@ -10,8 +10,8 @@ Clone repo to your machine.
 
 ### Backend
 
-The backend is a Rails API using Ruby 2.6.1. From the /backend directory, run `bundle install` to install dependencies.
+The backend is a Rails API using Ruby 2.6.1. From the /backend directory, run `bundle install` to install dependencies, `rails db:migrate` to run migrations and `rails db:seed` to seed the database. Run `rails s` to start the server.
 
 ### Frontend
 
-From the /frontend directory, run `npm install`.
+From the /frontend directory, run `npm install` to install dependencies and `npm start` to start the server.
