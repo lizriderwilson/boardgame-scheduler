@@ -6,7 +6,7 @@ import { bindActionCreators } from "redux";
 
 import Games from "../components/games/Games";
 
-class GamesPage extends Component {
+class GamesContainer extends Component {
   componentDidMount() {
     this.props.actions.checkLoginStatus();
   }
@@ -50,4 +50,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(GamesPage);
+export default connect(mapStateToProps, mapDispatchToProps)(GamesContainer);

@@ -17,12 +17,6 @@ const HomeContainer = (props) => {
         </p>
       </div>
       <div className="w-3/4 mx-auto grid grid-cols-3 gap-10 mt-10">
-        {/* <div className="bg-yellow-100 h-24 rounded-md">
-          <Link to="/games">Games</Link>
-        </div>
-        <div className="bg-yellow-100 h-24 rounded-md">
-          <Link to="/tables">Tables</Link>
-        </div> */}
         <ModelCard resources={props.games} slug={"games"} />
         <ModelCard resources={props.tables.allTables} slug={"tables"} />
         <ModelCard resources={props.users} slug={"users"} />

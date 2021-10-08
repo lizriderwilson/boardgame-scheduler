@@ -52,7 +52,7 @@ export const createUser = (user) => {
   };
 };
 
-export const logOut = (user) => {
+export const logOut = () => {
   return (dispatch) => {
     fetch("http://localhost:3001/logout", {
       method: "DELETE",

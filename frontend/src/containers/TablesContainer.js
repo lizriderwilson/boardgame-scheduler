@@ -5,7 +5,7 @@ import * as sessionsActions from "../redux/actions/sessionsActions";
 
 import Tables from "../components/tables/Tables";
 
-class TablesPage extends Component {
+class TablesContainer extends Component {
   componentDidMount() {
     this.props.actions.checkLoginStatus();
   }
@@ -47,4 +47,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TablesPage);
+export default connect(mapStateToProps, mapDispatchToProps)(TablesContainer);

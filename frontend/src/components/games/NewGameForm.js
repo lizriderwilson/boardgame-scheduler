@@ -110,9 +110,8 @@ class NewGameForm extends Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
   return {
-    //sessions: state.sessions,
     games: state.games,
   };
 };

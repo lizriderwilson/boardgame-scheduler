@@ -5,7 +5,7 @@ import * as sessionsActions from "../redux/actions/sessionsActions";
 
 import Users from "../components/users/Users";
 
-class UsersPage extends Component {
+class UsersContainer extends Component {
   componentDidMount() {
     this.props.actions.checkLoginStatus();
   }
@@ -41,4 +41,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(UsersPage);
+export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);
