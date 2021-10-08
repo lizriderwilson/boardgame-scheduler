@@ -4,8 +4,8 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import NavbarContainer from "./containers/NavbarContainer";
 import HomeContainer from "./containers/HomeContainer";
 import GamesContainer from "./containers/GamesContainer";
-import TablesPage from "./containers/TablesPage";
-import UsersContainer from "./containers/UsersPage";
+import TablesPage from "./containers/TablesContainer";
+import UsersContainer from "./containers/UsersContainer";
 
 const App = () => {
   return (
